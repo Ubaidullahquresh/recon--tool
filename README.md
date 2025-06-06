@@ -107,7 +107,11 @@ All modules can be triggered independently using flags:
 Author
 
 👨‍💻 Name: Ubaidullah Qureshi
+
+
 🎓 Internship: ITSOLERA – Cyber Department
+
+
 🛠️ Task: Offensive Security (Tool Development)
 
 
