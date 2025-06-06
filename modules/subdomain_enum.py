@@ -9,7 +9,15 @@ def run_subdomain_enum(domain):
     try:
         url = f"https://crt.sh/?q=%25.{domain}&output=json"
         response = requests.get(url, timeout=10)
-        data = response.json()
+
+        if response.status_code != 200:
+            raise Exception(f"HTTP {response.status_code}")
+
+        try:
+            data = response.json()
+        except ValueError:
+            raise Exception("Response is not valid JSON")
+
         for entry in data:
             name_value = entry.get("name_value", "")
             for sub in name_value.split("\n"):
