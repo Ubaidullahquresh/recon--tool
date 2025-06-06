@@ -1,126 +1,115 @@
-Recon-Tool
+🔍 Recon-Tool
 Overview
 
-Recon-Tool is a lightweight, modular reconnaissance tool designed for penetration testers and red teamers to automate initial information gathering.
-It supports passive and active recon with detailed, easy-to-read reports.
-Features
-
-    WHOIS Lookup
-
-    DNS Enumeration (A, MX, TXT, NS records)
-
-    Subdomain Enumeration (crt.sh API)
-
-    Port Scanning (common ports)
-
-    Banner Grabbing
-
-    Technology Detection (via WhatWeb)
-
-    Generates reports in .txt or .html formats
-
-    Modular CLI with command-line flags
-
-    Logging with verbosity levels
-
-Installation
-
-1.    Clone the repository:
-  
-git clone https://github.com/yourusername/recon-tool.git
-cd recon-tool
-
-2.   Create and activate a Python virtual environment:
-
-python3 -m venv venv
-source venv/bin/activate
+Recon-Tool is a lightweight, modular reconnaissance tool designed for penetration testers and red teamers to automate initial information gathering during security assessments. It supports both passive and active recon techniques, with clear reporting features.
 
 
-3.   Install required packages:
+Key Features
 
-pip install -r requirements.txt
+    ✅ WHOIS Lookup
 
-4.   (Optional) Install WhatWeb (for technology detection):
+    ✅ DNS Enumeration (A, MX, TXT, NS records)
 
-sudo apt install whatweb
+    ✅ Subdomain Enumeration (API-based + wordlist-based)
 
-Usage
+    ✅ Port Scanning (common ports using sockets)
 
-Run the tool with your desired modules:
+    ✅ Banner Grabbing
 
-python3 main.py --target example.com --whois --dns --subdomains --portscan --banner --tech --report html --verbose
+    ✅ Technology Detection (via WhatWeb)
 
+    ✅ Modular CLI using command-line flags
 
-Available flags:
+    ✅ TXT/HTML Report generation
 
-    --whois: WHOIS lookup
-
-    --dns: DNS enumeration
-
-    --subdomains: Subdomain enumeration
-
-    --portscan: Port scanning
-
-    --banner: Banner grabbing
-
-    --tech: Technology detection
-
-    --report [txt|html]: Report format (default: txt)
-
-    --verbose: Show detailed logs
+    ✅ Logging with verbosity levels
 
 
+Passive Recon Modules
 
-    Reporting
+    --whois → Fetch domain registration info
 
-Recon-Tool generates detailed reports in either plain text (.txt) or rich HTML (.html) format.
+    --dns → Enumerate A, MX, TXT, NS records
 
-    TXT reports: Simple text files viewable in any text editor or terminal pager (e.g., nano, less).
-
-    HTML reports: Fully formatted web pages stored locally. Open them in any web browser to see a clean, professional layout with sections, colors, and easy navigation.
-
-How to view your HTML report:
-
-    1. Run Recon-Tool with the HTML report option:
-
-python3 main.py --target example.com --whois --dns --subdomains --portscan --banner --tech --report html
+    --subdomains → Subdomain discovery using APIs like crt.sh and OTX
 
 
-   2. Open the generated report in a browser (Firefox example):
+Recommended Test Commands:
 
-firefox reports/example_com_report.html &
+    python3 main.py --target example.com --whois  
+    python3 main.py --target example.com --dns  
+    python3 main.py --target example.com --subdomains  
 
-   3. Your browser will display the report as a neat web page—no internet required!
+    # Bonus (Full Passive Recon)
+    python3 main.py --target example.com --whois --dns --subdomains
 
-Sample Report Screenshot
 
-    1. Generate your report (run your tool with the --report flag on a test domain).
+Active Recon Modules
 
-    2. View the report in your preferred app:
+    --portscan → Scan for open ports
 
-        If .html, open with Firefox (or any browser):
+    --banner → Grab HTTP banner (default: port 80 or specify with --port)
 
-        firefox reports/sample_report.html &
-        
-        If.txt, open with nano or less.
+    --tech → Identify technologies with WhatWeb
 
-   Take a screenshot to include in your README or presentation:
 
-    3. Install scrot if needed:
+Recommended Test Commands:
 
-       sudo apt install scrot
-   
-   Take screenshot:
+    python3 main.py --target testphp.vulnweb.com --portscan  
+    python3 main.py --target testphp.vulnweb.com --banner --port 80  
+    python3 main.py --target testphp.vulnweb.com --tech
 
-      scrot reports/sample_report_screenshot.png
 
-   4. Your screenshot will be saved inside the reports/ folder.
+Reporting
 
-   5. Reference it in your README like this:
+Reports are generated in either .txt or .html formats under the reports/ folder.
 
-License
+Command: 
 
-MIT License
+    python3 main.py --target example.com --whois --dns --subdomains --report html
+
+To view:
+
+    # TXT
+    less reports/example_com_report.txt
+
+    # HTML
+    firefox reports/example_com_report.html &
+
+
+Optional Screenshot:
+
+    sudo apt install scrot
+    scrot reports/sample_report_screenshot.png
+
+
+ Installation Guide
+
+    # 1. Clone
+    git clone https://github.com/yourusername/recon-tool.git  
+    cd recon-tool
+
+    # 2. Create virtual environment
+    python3 -m venv venv  
+    source venv/bin/activate  
+
+    # 3. Install dependencies
+    pip install -r requirements.txt  
+
+    # 4. (Optional) Install WhatWeb
+    sudo apt install whatweb  
+
+Modularity & CLI Usage
+All modules can be triggered independently using flags:
+
+    python3 main.py --target example.com --whois --dns --subdomains --portscan --banner --tech --report html --verbose
+
 Author
 
-Ubaidullah Qureshi
+👨‍💻 Name: Ubaidullah Qureshi
+🎓 Internship: ITSOLERA – Cyber Department
+🛠️ Task: Offensive Security (Tool Development)
+
+
+
+
