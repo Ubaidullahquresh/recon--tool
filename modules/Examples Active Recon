@@ -1,0 +1,15 @@
+Recommended Test Commands (Terminal)
+
+1. Port Scan
+
+python3 main.py --target testphp.vulnweb.com --portscan
+
+
+2. Banner Grabbing
+
+python3 main.py --target testphp.vulnweb.com --banner --port 80
+
+
+3. Tech Detection
+
+python3 main.py --target testphp.vulnweb.com --tech
