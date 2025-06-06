@@ -1,0 +1,22 @@
+Testing Passive Recon Modules from Terminal
+
+1. Test WHOIS Lookup
+
+python3 main.py --target example.com --whois
+
+2.  Test DNS Enumeration
+
+python3 main.py --target example.com --dns
+
+3.  Test Subdomain Enumeration (API-based) 
+
+python3 main.py --target example.com --subdomains
+
+
+
+
+Bonus: Combine Flags for Full Passive Recon
+
+python3 main.py --target example.com --whois --dns --subdomains
+
+
