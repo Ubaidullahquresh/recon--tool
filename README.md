@@ -109,11 +109,4 @@ Author
 👨‍💻 Name: Ubaidullah Qureshi
 
 
-🎓 Internship: ITSOLERA – Cyber Department
-
-
-🛠️ Task: Offensive Security (Tool Development)
-
-
-
 
